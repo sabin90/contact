@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      height: 30px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0 10px;
+    }
+
+    button {
+      width: 100%;
+      height: 35px;
+      background-color: #0077c9;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    td, th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #ddd;
+    }
+
+    th {
+      text-align: left;
+      background-color: #0077c9;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Contact Form</h1>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone">
+      </div>
+      <button type="button" onclick="addRow()">Submit</button>
+      <br>
+      <button type="button" onclick="printTable()">Print</button>
+    </form>
+  </div>
+
+  <table id="table">
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Email</th>
+      <th>Phone</th>
+    </tr>
+  </table>
+
+  
+   <script>
+      function addRow() {
+    // Get the entered values
+    var name = document.getElementById('name').value;
+    var address = document.getElementById('address').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+
+    // Get the table element
+    var table = document.getElementById('table');
+
+    // Create a new row
+    var row = table.insertRow(-1);
+
+    // Insert cells for the entered values
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+
+    // Set the cell values to the entered values
+    cell1.innerHTML = name;
+    cell2.innerHTML = address;
+    cell3.innerHTML = email;
+    cell4.innerHTML = phone;
+  }
+
+  function printTable() {
+    // Print the table
+    window.print();
+  }
+
+   </script>
